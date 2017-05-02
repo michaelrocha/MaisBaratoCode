@@ -10,6 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * @author Vitor
+ * @version 1.0.0
+ * @since 29/04/2017
+ *
+ */
+ 
 @Entity
 @XmlRootElement
 public class Produto {

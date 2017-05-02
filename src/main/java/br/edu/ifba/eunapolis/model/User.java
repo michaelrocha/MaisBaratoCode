@@ -11,6 +11,13 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * @author Vitor
+ * @version 1.0.0
+ * @since 29/04/2017
+ *
+ */
+ 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {

@@ -7,6 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author Vitor
+ * @version 1.0.0
+ * @since 29/04/2017
+ *
+ */
+ 
 @Entity
 public class Orcamento {
 
