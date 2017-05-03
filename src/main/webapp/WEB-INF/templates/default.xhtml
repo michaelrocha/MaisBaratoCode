@@ -1,19 +1,3 @@
-<!--
-    JBoss, Home of Professional Open Source
-    Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-    contributors by the @authors tag. See the copyright.txt in the
-    distribution for a full listing of individual contributors.
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -22,34 +6,96 @@
 <h:head>
     <title>MaisBarato</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <h:outputStylesheet name="css/screen.css" />
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<h:outputScript name="js/material.min.js" />
+	<h:outputStylesheet name="css/style.css"/>
+	<style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
 </h:head>
 <h:body>
-    <div id="container">
-        <div class="dualbrand">
-            <img src="resources/gfx/dualbrand_logo.png" />
+	    <!-- Always shows a header, even in smaller screens. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+            <img class="android-logo-image" src="images/android-logo.png"/>
+          </span>
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-field"/>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Phones</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Tablets</a>              
+            </nav>
+          </div>
+          <span class="android-mobile-title mdl-layout-title">
+            <img class="android-logo-image" src="images/android-logo.png"/>
+          </span>
+          <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+            <li class="mdl-menu__item">5.0 Lollipop</li>
+            <li class="mdl-menu__item">4.4 KitKat</li>
+            <li disabled="disable" class="mdl-menu__item">4.3 Jelly Bean</li>
+            <li class="mdl-menu__item">Android History</li>
+          </ul>
         </div>
-        <div id="content">
-            <ui:insert name="content">
-                    [Template content will be inserted here]
-         </ui:insert>
-        </div>
-        <div id="aside">
-            <p>Learn more about JBoss WildFly.</p>
-            <ul>
-                <li><a
-                    href="https://github.com/wildfly/quickstart/blob/master/guide/Introduction.asciidoc">Getting
-                        Started Developing Applications Guide</a></li>
-                <li><a href="http://www.wildfly.org/">Community
-                        Project Information</a></li>
-            </ul>
-        </div>
-        <div id="footer">
-            <p>
-                This project was generated from a Maven archetype from
-                WildFly.<br />
-            </p>
-        </div>
-    </div>
+      </div>
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <img class="android-logo-image" src="images/android-logo-white.png"/>
+        </span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Phones</a>        
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">Versions</span>
+          <a class="mdl-navigation__link" href="">Lollipop 5.0</a>         
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">Resources</span>
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">For developers</span>          
+          <a class="mdl-navigation__link" href="">Android SDK</a>
+        </nav>
+      </div>
+<div class="android-content mdl-layout__content">
+       <div id="container">        
+            	<ui:insert name="content">
+                	    [Template content will be inserted here]
+         		</ui:insert>
+			 <div id="footer">
+			     <footer class="mdl-mini-footer">
+			  		<div class="mdl-mini-footer__left-section">
+				   		<div class="mdl-logo">Title</div>
+				    	<ul class="mdl-mini-footer__link-list">
+				    	<li><a href="#">Help</a></li>
+				      	<li><a href="#">Privacy Terms</a></li>
+				    	</ul>
+				  	</div>
+				 </footer>
+			  </div>
+			  </div>
+  </div>
+</div>
 </h:body>
 </html>
