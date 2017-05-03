@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -22,9 +23,11 @@ public class Orcamento {
 	private Long Id;
 	
 	@NotNull
+	@ManyToMany
 	private List<PrecoProduto> precoProduto;
 	
-	@NotNull 
+	@NotNull
+	@ManyToMany
 	private List<PontoVenda> pontoVendas;
 	
 	private boolean similar;

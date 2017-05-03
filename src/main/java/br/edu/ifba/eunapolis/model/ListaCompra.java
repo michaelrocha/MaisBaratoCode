@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -30,8 +31,10 @@ public class ListaCompra {
 	@NotEmpty
 	private String nome;
 
+	@ManyToMany
 	private List<Produto> produtos;
-	
+
+	@ManyToMany
 	private List<Orcamento> orcamentos;
 	
 	private boolean status;

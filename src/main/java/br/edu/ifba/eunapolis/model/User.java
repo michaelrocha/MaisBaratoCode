@@ -1,13 +1,15 @@
 package br.edu.ifba.eunapolis.model;
 
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -19,6 +21,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
  
 @Entity
+@XmlRootElement
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 	
@@ -34,9 +37,14 @@ public class User {
     @NotEmpty
 	private String email;
 	
+	@ManyToMany
 	private List<ListaCompra> listaCompras;
+	
+	@ManyToMany
 	private List<Produto> favoritos;
-	private List<Produto> similares;
+	
+	@OneToOne
+	private Similar similar;
 	
 	private int pontuacao;
 	
@@ -52,13 +60,7 @@ public class User {
 	public List<ListaCompra> getListaCompras() {
 		return listaCompras;
 	}
-	public List<Produto> getFavoritos() {
-		return favoritos;
-	}
-	public List<Produto> getSimilares() {
-		return similares;
-	}
-	
+    
 	public int getPontuacao() {
 		return pontuacao;
 	}
@@ -74,15 +76,16 @@ public class User {
 	public void setListaCompras(List<ListaCompra> listaCompras) {
 		this.listaCompras = listaCompras;
 	}
-	public void setFavoritos(List<Produto> favoritos) {
-		this.favoritos = favoritos;
-	}
-	public void setSimilares(List<Produto> similares) {
-		this.similares = similares;
-	}
 	
 	public void setPontuacao(int pontuacao) {
 		this.pontuacao = pontuacao;
+	}
+
+	public List<Produto> getFavoritos() {
+		return favoritos;
+	}
+	public void setFavoritos(List<Produto> favoritos) {
+		this.favoritos = favoritos;
 	}
 	
 

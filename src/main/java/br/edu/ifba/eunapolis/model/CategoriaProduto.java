@@ -1,8 +1,11 @@
 package br.edu.ifba.eunapolis.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -24,7 +27,9 @@ public class CategoriaProduto {
 	@NotNull
 	@NotEmpty
 	private String nome;
-	private CategoriaProduto subcategoria;
+	
+	@OneToMany
+	private List<CategoriaProduto> subcategoria;
 
 	public Long getId() {
 		return id;
@@ -34,7 +39,7 @@ public class CategoriaProduto {
 		return nome;
 	}
 
-	public CategoriaProduto getSubcategoria() {
+	public List<CategoriaProduto> getSubcategoria() {
 		return subcategoria;
 	}
 
@@ -46,7 +51,7 @@ public class CategoriaProduto {
 		this.nome = nome;
 	}
 
-	public void setSubcategoria(CategoriaProduto subcategoria) {
+	public void setSubcategoria(List<CategoriaProduto> subcategoria) {
 		this.subcategoria = subcategoria;
 	}
 

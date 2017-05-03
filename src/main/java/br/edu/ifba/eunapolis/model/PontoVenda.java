@@ -5,6 +5,7 @@ import java.sql.Blob;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.DefaultValue;
 
@@ -30,6 +31,7 @@ public class PontoVenda {
 	private String nome;
 
 	@NotNull
+	@ManyToOne
 	private Rede rede;
 
 	@NotNull

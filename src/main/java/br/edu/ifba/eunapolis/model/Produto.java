@@ -6,6 +6,7 @@ import java.sql.Blob;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -30,6 +31,7 @@ public class Produto {
 	private String nome;
 
 	@NotNull
+	@ManyToOne
 	private Marca marca;
 
 	private Blob foto;
@@ -40,11 +42,13 @@ public class Produto {
 
 	@NotNull
 	@NotEmpty
+	@ManyToOne
 	private CategoriaProduto categoriaProduto;
 
 	@NotNull
 	@NotEmpty
-	private Unidade unidadeMedida;
+	@ManyToOne
+	private UnidadeMedida unidadeMedida;
 	
 
 	@NotNull
@@ -71,7 +75,7 @@ public class Produto {
 		return marca;
 	}
 
-	public Unidade getUnidadeMedida() {
+	public UnidadeMedida getUnidadeMedida() {
 		return unidadeMedida;
 	}
 
@@ -111,7 +115,7 @@ public class Produto {
 		this.marca = marca;
 	}
 
-	public void setUnidadeMedida(Unidade unidadeMedida) {
+	public void setUnidadeMedida(UnidadeMedida unidadeMedida) {
 		this.unidadeMedida = unidadeMedida;
 	}
 

@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.DefaultValue;
 
@@ -27,9 +28,11 @@ public class PrecoProduto {
 
 	@NotNull
 	@NotBlank
+	@OneToOne
 	private Produto produto;
 
 	@NotNull
+	@OneToOne
 	private PontoVenda pontoVenda;
 
 	@NotNull
@@ -42,6 +45,7 @@ public class PrecoProduto {
 	
 	@NotNull
 	@NotEmpty
+	@OneToOne
 	private User user;
 	
 	@NotNull
